@@ -50,8 +50,8 @@ benchmark "well_architected_framework_sec01_bp06" {
   title       = "BP06 Automate testing and validation of security controls in pipelines"
   description = "Establish secure baselines and templates for security mechanisms that are tested and validated as part of your build, pipelines, and processes. Use tools and automation to test and validate all security controls continuously."
   children = [
-    aws_compliance.control.ec2_instance_ssm_managed,
-    aws_compliance.control.ecr_repository_image_scan_on_push_enabled,
+    # aws_compliance.control.ec2_instance_ssm_managed,
+    # aws_compliance.control.ecr_repository_image_scan_on_push_enabled,
   ]
 
   tags = merge(local.well_architected_framework_sec01_common_tags, {

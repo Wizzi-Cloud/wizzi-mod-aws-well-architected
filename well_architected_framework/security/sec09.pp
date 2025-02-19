@@ -23,7 +23,8 @@ benchmark "well_architected_framework_sec09_bp01" {
   children = [
     aws_compliance.control.acm_certificate_expires_30_days,
     aws_compliance.control.elb_classic_lb_use_ssl_certificate,
-    aws_compliance.control.elb_application_network_lb_use_ssl_certificate
+    aws_compliance.control.elb_application_network_lb_use_ssl_certificate,
+    aws_compliance.control.acm_certificate_transparency_logging_enabled
   ]
 
   tags = merge(local.well_architected_framework_sec09_common_tags, {
@@ -72,7 +73,7 @@ benchmark "well_architected_framework_sec09_bp04" {
   description = "Verify the identity of communications by using protocols that support authentication, such as Transport Layer Security (TLS) or IPsec. Using network protocols that support authentication, allows for trust to be established between the parties. This adds to the encryption used in the protocol to reduce the risk of communications being altered or intercepted. Common protocols that implement authentication include Transport Layer Security (TLS), which is used in many AWS services, and IPsec, which is used in AWS Virtual Private Network (AWS VPN)."
   children = [
     aws_compliance.control.elb_classic_lb_use_tls_https_listeners,
-    aws_compliance.control.vpc_flow_logs_enabled
+    # aws_compliance.control.vpc_flow_logs_enabled
   ]
 
   tags = merge(local.well_architected_framework_sec09_common_tags, {

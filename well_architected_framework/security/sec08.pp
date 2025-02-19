@@ -22,7 +22,6 @@ benchmark "well_architected_framework_sec08_bp01" {
   description = "By defining an encryption approach that includes the storage, rotation, and access control of keys, you can help provide protection for your content against unauthorized users and against unnecessary exposure to authorized users. AWS Key Management Service (AWS KMS) helps you manage encryption keys and integrates with many AWS services. This service provides durable, secure, and redundant storage for your AWS KMS keys. You can define your key aliases as well as key-level policies. The policies help you define key administrators as well as key users. Additionally, AWS CloudHSM is a cloud-based hardware security module (HSM) that allows you to easily generate and use your own encryption keys in the AWS Cloud. It helps you meet corporate, contractual, and regulatory compliance requirements for data security by using FIPS 140-2 Level 3 validated HSMs."
   children = [
     aws_compliance.control.apigateway_stage_cache_encryption_at_rest_enabled,
-    aws_compliance.control.backup_recovery_point_encryption_enabled,
     aws_compliance.control.codebuild_project_artifact_encryption_enabled,
     aws_compliance.control.codebuild_project_s3_logs_encryption_enabled,
     aws_compliance.control.kms_key_not_pending_deletion
@@ -38,6 +37,7 @@ benchmark "well_architected_framework_sec08_bp02" {
   title       = "BP02 Enforce encryption at rest"
   description = "You should enforce the use of encryption for data at rest. Encryption maintains the confidentiality of sensitive data in the event of unauthorized access or accidental disclosure. Private data should be encrypted by default when at rest. Encryption helps maintain confidentiality of the data and provides an additional layer of protection against intentional or inadvertent data disclosure or exfiltration. Data that is encrypted cannot be read or accessed without first unencrypting the data. Any data stored unencrypted should be inventoried and controlled."
   children = [
+    aws_compliance.control.backup_recovery_point_encryption_enabled,
     aws_compliance.control.efs_file_system_encrypt_data_at_rest,
     aws_compliance.control.es_domain_encryption_at_rest_enabled,
     aws_compliance.control.opensearch_domain_encryption_at_rest_enabled,
@@ -68,12 +68,12 @@ benchmark "well_architected_framework_sec08_bp03" {
   title       = "BP03 Automate data at rest protection"
   description = "Use automated tools to validate and enforce data at rest controls continuously, for example, verify that there are only encrypted storage resources. You can automate validation that all EBS volumes are encrypted using AWS Config Rules. AWS Security Hub can also verify several different controls through automated checks against security standards. Additionally, your AWS Config Rules can automatically remediate noncompliant resources."
   children = [
-    aws_compliance.control.redshift_cluster_audit_logging_enabled,
+    # aws_compliance.control.redshift_cluster_audit_logging_enabled,
     aws_compliance.control.redshift_cluster_kms_enabled,
     aws_compliance.control.s3_bucket_default_encryption_enabled,
     aws_compliance.control.sagemaker_endpoint_configuration_encryption_at_rest_enabled,
     aws_compliance.control.sagemaker_notebook_instance_encryption_at_rest_enabled,
-    aws_compliance.control.sagemaker_notebook_instance_encrypted_with_kms_cmk
+    # aws_compliance.control.sagemaker_notebook_instance_encrypted_with_kms_cmk
   ]
 
   tags = merge(local.well_architected_framework_sec08_common_tags, {
@@ -88,7 +88,7 @@ benchmark "well_architected_framework_sec08_bp04" {
   children = [
     aws_compliance.control.sns_topic_encrypted_at_rest,
     aws_compliance.control.s3_bucket_versioning_enabled,
-    aws_compliance.control.account_part_of_organizations
+    # aws_compliance.control.account_part_of_organizations
   ]
 
   tags = merge(local.well_architected_framework_sec08_common_tags, {

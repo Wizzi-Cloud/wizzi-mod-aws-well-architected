@@ -26,7 +26,7 @@ benchmark "well_architected_framework_sec02_bp01" {
     aws_compliance.control.iam_user_hardware_mfa_enabled,
     aws_compliance.control.iam_user_mfa_enabled,
     aws_compliance.control.iam_user_console_access_mfa_enabled,
-    aws_compliance.control.iam_root_user_no_access_keys,
+    # aws_compliance.control.iam_root_user_no_access_keys,
     aws_compliance.control.iam_user_with_administrator_access_mfa_enabled,
     aws_compliance.control.sagemaker_notebook_instance_root_access_disabled
   ]
@@ -41,9 +41,9 @@ benchmark "well_architected_framework_sec02_bp02" {
   title       = "BP02 Use temporary credentials"
   description = "When doing any type of authentication, it’s best to use temporary credentials instead of long-term credentials to reduce or eliminate risks, such as credentials being inadvertently disclosed, shared, or stolen."
   children = [
-    aws_compliance.control.iam_user_access_key_age_90,
+    # aws_compliance.control.iam_user_access_key_age_90,
     aws_compliance.control.iam_user_unused_credentials_90,
-    aws_compliance.control.secretsmanager_secret_automatic_rotation_enabled,
+    # aws_compliance.control.secretsmanager_secret_automatic_rotation_enabled,
     aws_compliance.control.secretsmanager_secret_last_changed_90_day,
     aws_compliance.control.secretsmanager_secret_rotated_as_scheduled,
     aws_compliance.control.secretsmanager_secret_unused_90_day

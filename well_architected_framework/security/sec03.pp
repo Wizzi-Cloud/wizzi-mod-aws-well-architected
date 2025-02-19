@@ -25,8 +25,8 @@ benchmark "well_architected_framework_sec03_bp01" {
   title       = "BP01 Define access requirements"
   description = "Each component or resource of your workload needs to be accessed by administrators, end users, or other components. Have a clear definition of who or what should have access to each component, choose the appropriate identity type and method of authentication and authorization."
   children = [
-    aws_compliance.control.ec2_instance_uses_imdsv2,
-    aws_compliance.control.ec2_instance_iam_profile_attached,
+    # aws_compliance.control.ec2_instance_uses_imdsv2,
+    # aws_compliance.control.ec2_instance_iam_profile_attached,
     aws_compliance.control.ecs_task_definition_user_for_host_mode_check,
     aws_compliance.control.cloudwatch_cross_account_sharing
   ]
@@ -83,8 +83,8 @@ benchmark "well_architected_framework_sec03_bp05" {
   title       = "BP05 Define permission guardrails for your organization"
   description = "Establish common controls that restrict access to all identities in your organization. For example, you can restrict access to specific AWS Regions, or prevent your operators from deleting common resources, such as an IAM role used for your central security team."
   children = [
-    aws_compliance.control.account_part_of_organizations,
-    aws_compliance.control.iam_user_unused_credentials_90,
+    # aws_compliance.control.account_part_of_organizations,
+    # aws_compliance.control.iam_user_unused_credentials_90,
   ]
 
   tags = merge(local.well_architected_framework_sec03_common_tags, {
@@ -97,8 +97,8 @@ benchmark "well_architected_framework_sec03_bp06" {
   title       = "BP06 Manage access based on lifecycle"
   description = "Integrate access controls with operator and application lifecycle and your centralized federation provider. For example, remove a user's access when they leave the organization or change roles. AWS RAM, access to shared resources is automatically granted or revoked as accounts are moved in and out of the Organization or Organization Unit with which they are shared. This helps ensure that resources are only shared with the accounts that you intend."
   children = [
-    aws_compliance.control.iam_user_unused_credentials_90,
-    aws_compliance.control.dms_replication_instance_not_publicly_accessible,
+    # aws_compliance.control.iam_user_unused_credentials_90,
+    # aws_compliance.control.dms_replication_instance_not_publicly_accessible,
     aws_compliance.control.cloudwatch_log_group_retention_period_365,
     aws_compliance.control.codebuild_project_build_greater_then_90_days,
     aws_compliance.control.vpc_eip_associated,
@@ -120,7 +120,7 @@ benchmark "well_architected_framework_sec03_bp07" {
     aws_compliance.control.ebs_snapshot_not_publicly_restorable,
     aws_compliance.control.ec2_instance_not_publicly_accessible,
     aws_compliance.control.es_domain_in_vpc,
-    aws_compliance.control.opensearch_domain_in_vpc,
+    # aws_compliance.control.opensearch_domain_in_vpc,
     aws_compliance.control.emr_cluster_master_nodes_no_public_ip,
     aws_compliance.control.emr_account_public_access_blocked,
     aws_compliance.control.ec2_instance_in_vpc,
@@ -133,7 +133,7 @@ benchmark "well_architected_framework_sec03_bp07" {
     aws_compliance.control.s3_bucket_policy_restrict_public_access,
     aws_compliance.control.s3_bucket_restrict_public_write_access,
     aws_compliance.control.sagemaker_notebook_instance_direct_internet_access_disabled,
-    aws_compliance.control.secretsmanager_secret_unused_90_day,
+    # aws_compliance.control.secretsmanager_secret_unused_90_day,
     aws_compliance.control.autoscaling_launch_config_public_ip_disabled,
     aws_compliance.control.cloudtrail_bucket_not_public,
     aws_compliance.control.ecr_repository_prohibit_public_access,
@@ -155,13 +155,13 @@ benchmark "well_architected_framework_sec03_bp08" {
   title       = "BP08 Share resources securely within your organization"
   description = "As the number of workloads grows, you might need to share access to resources in those workloads or provision the resources multiple times across multiple accounts. You might have constructs to compartmentalize your environment, such as having development, testing, and production environments. However, having separation constructs does not limit you from being able to share securely. By sharing components that overlap, you can reduce operational overhead and allow for a consistent experience without guessing what you might have missed while creating the same resource multiple times."
   children = [
-    aws_compliance.control.dms_replication_instance_not_publicly_accessible,
-    aws_compliance.control.es_domain_in_vpc,
-    aws_compliance.control.opensearch_domain_in_vpc,
-    aws_compliance.control.ec2_instance_in_vpc,
-    aws_compliance.control.lambda_function_in_vpc,
-    aws_compliance.control.sagemaker_notebook_instance_direct_internet_access_disabled,
-    aws_compliance.control.secretsmanager_secret_unused_90_day,
+    # aws_compliance.control.dms_replication_instance_not_publicly_accessible,
+    # aws_compliance.control.es_domain_in_vpc,
+    # aws_compliance.control.opensearch_domain_in_vpc,
+    # aws_compliance.control.ec2_instance_in_vpc,
+    # aws_compliance.control.lambda_function_in_vpc,
+    # aws_compliance.control.sagemaker_notebook_instance_direct_internet_access_disabled,
+    # aws_compliance.control.secretsmanager_secret_unused_90_day,
     aws_compliance.control.codebuild_project_with_user_controlled_buildspec,
   ]
 

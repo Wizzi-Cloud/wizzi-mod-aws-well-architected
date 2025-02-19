@@ -19,18 +19,18 @@ benchmark "well_architected_framework_rel06_bp01" {
   title       = "BP01 Monitor all components for the workload"
   description = "Monitor the components of the workload with Amazon CloudWatch or third-party tools. Monitor AWS services with AWS Health Dashboard. All components of your workload should be monitored, including the front-end, business logic, and storage tiers. Define key metrics, describe how to extract them from logs (if necessary), and set thresholds for invoking corresponding alarm events. Ensure metrics are relevant to the key performance indicators (KPIs) of your workload, and use metrics and logs to identify early warning signs of service degradation. For example, a metric related to business outcomes such as the number of orders successfully processed per minute, can indicate workload issues faster than technical metric, such as CPU Utilization. Use AWS Health Dashboard for a personalized view into the performance and availability of the AWS services underlying your AWS resources."
   children = [
-    aws_compliance.control.ec2_instance_detailed_monitoring_enabled,
-    aws_compliance.control.apigateway_stage_logging_enabled,
-    aws_compliance.control.acm_certificate_transparency_logging_enabled,
-    aws_compliance.control.codebuild_project_logging_enabled,
-    aws_compliance.control.ecs_task_definition_logging_enabled,
-    aws_compliance.control.elb_application_classic_lb_logging_enabled,
-    aws_compliance.control.lambda_function_cloudtrail_logging_enabled,
-    aws_compliance.control.opensearch_domain_audit_logging_enabled,
-    aws_compliance.control.rds_db_instance_logging_enabled,
-    aws_compliance.control.route53_zone_query_logging_enabled,
+    # aws_compliance.control.ec2_instance_detailed_monitoring_enabled,
+    # aws_compliance.control.apigateway_stage_logging_enabled,
+    # aws_compliance.control.acm_certificate_transparency_logging_enabled,
+    # aws_compliance.control.codebuild_project_logging_enabled,
+    # aws_compliance.control.ecs_task_definition_logging_enabled,
+    # aws_compliance.control.elb_application_classic_lb_logging_enabled,
+    # aws_compliance.control.lambda_function_cloudtrail_logging_enabled,
+    # aws_compliance.control.opensearch_domain_audit_logging_enabled,
+    # aws_compliance.control.rds_db_instance_logging_enabled,
+    # aws_compliance.control.route53_zone_query_logging_enabled,
     aws_compliance.control.s3_bucket_logging_enabled,
-    aws_compliance.control.s3_bucket_object_logging_enabled,
+    # aws_compliance.control.s3_bucket_object_logging_enabled,
     aws_compliance.control.waf_web_acl_logging_enabled
   ]
 

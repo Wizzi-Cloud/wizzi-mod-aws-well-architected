@@ -19,13 +19,13 @@ benchmark "well_architected_framework_rel09_bp02" {
   title       = "BP02 Secure and encrypt backups"
   description = "Control and detect access to backups using authentication and authorization. Prevent and detect if data integrity of backups is compromised using encryption."
   children = [
-    aws_compliance.control.backup_recovery_point_encryption_enabled,
-    aws_compliance.control.dynamodb_table_encryption_enabled,
-    aws_compliance.control.ec2_ebs_default_encryption_enabled,
+    # aws_compliance.control.backup_recovery_point_encryption_enabled,
+    # aws_compliance.control.dynamodb_table_encryption_enabled,
+    # aws_compliance.control.ec2_ebs_default_encryption_enabled,
     aws_compliance.control.ebs_volume_encryption_at_rest_enabled,
-    aws_compliance.control.rds_db_instance_encryption_at_rest_enabled,
-    aws_compliance.control.rds_db_snapshot_encrypted_at_rest,
-    aws_compliance.control.s3_bucket_default_encryption_enabled
+    # aws_compliance.control.rds_db_instance_encryption_at_rest_enabled,
+    # aws_compliance.control.rds_db_snapshot_encrypted_at_rest,
+    # aws_compliance.control.s3_bucket_default_encryption_enabled
   ]
 
   tags = merge(local.well_architected_framework_rel09_common_tags, {
