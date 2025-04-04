@@ -1,6 +1,6 @@
 locals {
-  well_architected_framework_rel09_common_tags = merge(local.well_architected_framework_reliability_common_tags, {
-    question_id = "backing-up-data"
+  well_architected_framework_rel_custom = merge(local.well_architected_framework_reliability_common_tags, {
+    question_id = "check-end-of-support"
   })
 }
 
@@ -13,5 +13,5 @@ benchmark "well_architected_framework_rel_custom" {
     aws_compliance.control.eks_cluster_support_check,
     aws_compliance.control.eks_cluster_extended_support
   ]
-  tags = local.well_architected_framework_rel09_common_tags
+  tags = local.well_architected_framework_rel_custom
 }
